@@ -4,9 +4,14 @@ phases:
   pre_build:
     commands:
       - echo "Logging in to Amazon ECR..."
-      # Авторизация в вашем Container Registry
+    
   build:
     commands:
       - echo "Building the Docker image..."
       - docker build -t my-test-image .
       - docker run my-test-image pytest
+
+artifacts:
+  files:
+    - "**/test-reports/*"  
+    - "report.html"
