@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Logging in to Amazon ECR..."
+      # Авторизация в вашем Container Registry
+  build:
+    commands:
+      - echo "Building the Docker image..."
+      - docker build -t my-test-image .
+      - docker run my-test-image pytest
